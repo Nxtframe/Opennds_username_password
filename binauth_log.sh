@@ -196,9 +196,9 @@ if [ $action = "auth_client" ]; then
 	# Note the format of the decoded customdata is set in the FAS or Themespec scripts so unencoded special characters may cause issues.
 	# For example, to decode customdata use:
 	# customdata=$(ndsctl b64decode "$customdata")
-	
+	custom=$(ndsctl b64decode "$7")
 	#Add New Mac address to database
-	echo $(sqlite3 /svr/www/userData.db "update users set clientmac='$2' where username='$7';")
+	echo $(sqlite3 /svr/www/userData.db "update users set clientmac='$2' where username='$custom';")
 
 
 	log_entry="method=$1, clientmac=$2, clientip=$5, useragent=$4, token=$6, custom=$7"
