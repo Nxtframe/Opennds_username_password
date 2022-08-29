@@ -164,7 +164,7 @@ function thankyou_page($tok,$username) {
 		This string will be b64 encoded before sending to binauth and will appear in the output of ndsctl json
 	*/
 
-	$custom=$username;
+	$custom=base64_encode($username);
 	echo "	<div class='hidden'>
 		<big-red>
 			Thankyou!
